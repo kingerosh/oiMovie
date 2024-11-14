@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		67D4A79C2CE38FC300CCEDAD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 67D4A79B2CE38FC300CCEDAD /* Alamofire */; };
+		67D4A79F2CE38FE300CCEDAD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 67D4A79E2CE38FE300CCEDAD /* SnapKit */; };
+		67D4A7A22CE38FF000CCEDAD /* YouTubeiOSPlayerHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 67D4A7A12CE38FF000CCEDAD /* YouTubeiOSPlayerHelper */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		67D4A6C92CE37C8000CCEDAD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +71,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67D4A79C2CE38FC300CCEDAD /* Alamofire in Frameworks */,
+				67D4A79F2CE38FE300CCEDAD /* SnapKit in Frameworks */,
+				67D4A7A22CE38FF000CCEDAD /* YouTubeiOSPlayerHelper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +134,9 @@
 			);
 			name = oiMovie;
 			packageProductDependencies = (
+				67D4A79B2CE38FC300CCEDAD /* Alamofire */,
+				67D4A79E2CE38FE300CCEDAD /* SnapKit */,
+				67D4A7A12CE38FF000CCEDAD /* YouTubeiOSPlayerHelper */,
 			);
 			productName = oiMovie;
 			productReference = 67D4A6B22CE37C7E00CCEDAD /* oiMovie.app */;
@@ -208,6 +220,11 @@
 			);
 			mainGroup = 67D4A6A92CE37C7E00CCEDAD;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				67D4A79A2CE38FC300CCEDAD /* XCRemoteSwiftPackageReference "Alamofire" */,
+				67D4A79D2CE38FE300CCEDAD /* XCRemoteSwiftPackageReference "SnapKit" */,
+				67D4A7A02CE38FF000CCEDAD /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 67D4A6B32CE37C7E00CCEDAD /* Products */;
 			projectDirPath = "";
@@ -294,9 +311,9 @@
 				INFOPLIST_FILE = oiMovie/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,9 +339,9 @@
 				INFOPLIST_FILE = oiMovie/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -390,7 +407,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -447,7 +464,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -569,6 +586,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		67D4A79A2CE38FC300CCEDAD /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+		67D4A79D2CE38FE300CCEDAD /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		67D4A7A02CE38FF000CCEDAD /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/youtube/youtube-ios-player-helper.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		67D4A79B2CE38FC300CCEDAD /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 67D4A79A2CE38FC300CCEDAD /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		67D4A79E2CE38FE300CCEDAD /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 67D4A79D2CE38FE300CCEDAD /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		67D4A7A12CE38FF000CCEDAD /* YouTubeiOSPlayerHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 67D4A7A02CE38FF000CCEDAD /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */;
+			productName = YouTubeiOSPlayerHelper;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 67D4A6AA2CE37C7E00CCEDAD /* Project object */;
 }
