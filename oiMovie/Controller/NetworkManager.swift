@@ -36,7 +36,7 @@ class NetworkManager {
 
     // Shared HTTP headers for all requests
     private let defaultHeaders: HTTPHeaders = [
-        "x-rapidapi-key": "b2456efd67msh2f337923d5e0ec5p18fd9cjsna51487a93257",
+        "x-rapidapi-key": "d4a594aff1mshb07dc0badf6df9ap13333ajsn1fe6e5846dae",
         "x-rapidapi-host": "movies-tv-shows-database.p.rapidapi.com"
     ]
     
@@ -191,7 +191,6 @@ class NetworkManager {
     
     func loadVideo(movieID: String, complition: @escaping ([ResultV])-> Void) {
         // uses imbdb EXTERNAL ID to load from movieDB
-        print(movieID)
         urlComponent.path = "/3/movie/\(movieID)/videos"
         urlComponent.queryItems?.append(URLQueryItem(name: "external_id", value: movieID))
 
@@ -212,7 +211,6 @@ class NetworkManager {
         AF.request(url).responseDecodable(of: Video.self) { result in
             
             if let videos = try? result.result.get() {
-                print(videos.results)
                 DispatchQueue.main.async {
                     complition(videos.results)
                 }

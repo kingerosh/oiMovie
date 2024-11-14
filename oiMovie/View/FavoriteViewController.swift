@@ -29,8 +29,7 @@ class FavoriteViewController: UIViewController {
         table.register(MovieTableViewCell.self, forCellReuseIdentifier: "favorite")
         return table
     }()
-    
-    var topInset = 0
+ 
     var movieData:[MovieResult] = []
     
     override func viewDidLoad() {
@@ -47,8 +46,13 @@ class FavoriteViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationItem.title = "Favorites"
+        navigationItem.titleView?.alpha = 1
         loadFromCoreData()
         movieTableView.reloadData()
+        
     }
     
     func setupUI() {
@@ -95,9 +99,9 @@ class FavoriteViewController: UIViewController {
         }
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.topInset = Int(view.safeAreaInsets.top)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
 
 
@@ -123,7 +127,6 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let movieDetailViewController = MovieDetailViewController()
         let movieID = movieData[indexPath.row].imdbID
-        movieDetailViewController.topInset = self.topInset
         movieDetailViewController.movieID = movieID
         NetworkManager.shared.loadVideo(movieID: movieID) { result in
             let videoID = result.first!.key

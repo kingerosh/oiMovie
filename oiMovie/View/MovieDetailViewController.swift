@@ -11,24 +11,6 @@ import YouTubeiOSPlayerHelper
 
 class MovieDetailViewController: UIViewController {
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let imageMaxY = movieImage.frame.maxY
-        let offset = scrollView.contentOffset.y
-        
-        if offset > imageMaxY {
-            // Set title when the image goes away
-            navigationController?.setNavigationBarHidden(false, animated: false)
-            navigationItem.title = movieTitle.text
-            navigationItem.titleView?.alpha = 1
-        } else {
-            // Clear the header when the image is visible
-            navigationController?.setNavigationBarHidden(true, animated: false)
-            navigationItem.title = ""
-            navigationItem.titleView?.alpha = 0
-            
-        }
-    }
-    
     private lazy var scrollView:UIScrollView = {
         let scroll = UIScrollView()
         scroll.showsHorizontalScrollIndicator = false
@@ -148,7 +130,6 @@ class MovieDetailViewController: UIViewController {
     }()
     
     var movieID = ""
-    var topInset = 0
     private var genre:[String] = []
     private var movieData: RMovieDetail?
     var movie: MovieResult?
@@ -210,21 +191,15 @@ class MovieDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        navigationItem.title = ""
-        navigationItem.titleView?.alpha = 0
-        print(movieID)
+        navigationController?.setNavigationBarHidden(false, animated: false)
         setupUI()
         apiRequest()
-        
-        
-        
-        scrollView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     override func viewDidLayoutSubviews() {
@@ -294,17 +269,14 @@ class MovieDetailViewController: UIViewController {
         ratingStackView.setCustomSpacing(0, after: ratingLabel)
         
         scrollView.snp.makeConstraints { make in
-            make.bottom.leading.trailing.equalTo(view.safeAreaLayoutGuide)
-            make.top.equalTo(view.snp.top)
-            
+            make.top.bottom.leading.trailing.equalTo(view.safeAreaLayoutGuide)
         }
         
-        
-        
+
         movieImage.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(-topInset)
-            make.height.equalTo(424+topInset)
+            make.top.equalToSuperview()
+            make.height.equalTo(424)
             make.width.equalTo(view.frame.width)
         }
         
@@ -408,7 +380,6 @@ class MovieDetailViewController: UIViewController {
             self.movieData = movie
             self.casts = movie.stars ?? []
             self.directors = movie.directors ?? []
-            print(movie.directors)
             self.castCollectionView.reloadData()
             self.directorCollectionView.reloadData()
             self.content()

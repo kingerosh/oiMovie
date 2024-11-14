@@ -62,7 +62,6 @@ class ViewController: UIViewController {
         return headerView
     }
     
-    var topInset = 0
     var movieData: [MovieResult] = []
     
     private let themes: [String] = ["Trending", "Popular", "Now playing", "Upcoming"]
@@ -164,12 +163,6 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        self.topInset = Int(view.safeAreaInsets.top)
-    }
-
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -187,8 +180,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let movieDetailViewController = MovieDetailViewController()
         let movieID = movieData[indexPath.row].imdbID
-        print(movieID)
-        movieDetailViewController.topInset = self.topInset
         movieDetailViewController.movieID = movieID
         movieDetailViewController.movie = movieData[indexPath.row]
         

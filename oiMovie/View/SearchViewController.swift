@@ -63,7 +63,6 @@ class SearchViewController:  UIViewController, UISearchResultsUpdating {
         return label
     }()
     
-    var topInset = 0
     var movieData: [Result] = []
     
     override func viewDidLoad() {
@@ -77,6 +76,9 @@ class SearchViewController:  UIViewController, UISearchResultsUpdating {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationItem.title = "Search"
+        navigationItem.titleView?.alpha = 1
         self.searchCollectionView.reloadData()
     }
     
@@ -129,7 +131,6 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let movie = movieData[indexPath.row]
         
         NetworkManager.shared.loadExternalID(movieID: movie.id) { imbdID in
-            movieDetailViewController.topInset = self.topInset
             movieDetailViewController.movieID = imbdID
             movieDetailViewController.movie = MovieResult(title: movie.title, imdbID: imbdID, year: nil)
             NetworkManager.shared.loadVideo(movieID: movie.id) { result in
@@ -142,7 +143,6 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.topInset = Int(view.safeAreaInsets.top)
     }
     
 }
